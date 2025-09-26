@@ -3814,8 +3814,8 @@
       "imageMode": {},
       "followTf": "base_link"
     },
-    "AutowareFoxgloveConverter.DLR Localization Result!v8bsq9": {},
-    "AutowareFoxgloveConverter.Vehicle Info!3d09irc": {}
+    "AutowareLichtblickPlugins.DLR Localization Result!v8bsq9": {},
+    "AutowareLichtblickPlugins.Vehicle Info!3d09irc": {}
   },
   "globalVariables": {
     "": "\"\""
@@ -3827,8 +3827,8 @@
   "layout": {
     "first": "3D!46c57bh",
     "second": {
-      "first": "AutowareFoxgloveConverter.DLR Localization Result!v8bsq9",
-      "second": "AutowareFoxgloveConverter.Vehicle Info!3d09irc",
+      "first": "AutowareLichtblickPlugins.DLR Localization Result!v8bsq9",
+      "second": "AutowareLichtblickPlugins.Vehicle Info!3d09irc",
       "direction": "column",
       "splitPercentage": 81.76850471932438
     },

@@ -1,6 +1,6 @@
-# AutowareFoxgloveConverter
+# AutowareLichtblickPlugins
 
-An extension for Foxglove Studio/Lichtblick that provides Autoware message converters and diagnostic panels for better visualization and debugging.
+An extension for Foxglove Studio/Lichtblick that provides Autoware message converters, panels, and layouts for visualing and debugging rosbags.
 
 Special thanks to [https://github.com/kminoda/AutowareFoxgloveConverter](https://github.com/kminoda/AutowareFoxgloveConverter) for the inspiration and the code to get started.
 
@@ -38,8 +38,8 @@ Special thanks to [https://github.com/kminoda/AutowareFoxgloveConverter](https:/
 ## Installation
 
 ```bash
-git clone https://github.com/your-username/AutowareFoxgloveConverter.git
-cd AutowareFoxgloveConverter
+git clone https://github.com/tier4/AutowareLichtblickPlugins.git
+cd AutowareLichtblickPlugins
 bash ./install.sh
 ```
 

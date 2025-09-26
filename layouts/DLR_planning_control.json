@@ -3817,9 +3817,9 @@
       "imageMode": {},
       "followTf": "base_link"
     },
-    "AutowareFoxgloveConverter.DLR Diagnostics!3l4lita": {},
-    "AutowareFoxgloveConverter.DLR Planning Factor!4kmxj8t": {},
-    "AutowareFoxgloveConverter.Vehicle Info!3d09irc": {}
+    "AutowareLichtblickPlugins.DLR Diagnostics!3l4lita": {},
+    "AutowareLichtblickPlugins.DLR Planning Factor!4kmxj8t": {},
+    "AutowareLichtblickPlugins.Vehicle Info!3d09irc": {}
   },
   "globalVariables": {
     "": "\"\""
@@ -3832,12 +3832,12 @@
     "first": "3D!46c57bh",
     "second": {
       "first": {
-        "first": "AutowareFoxgloveConverter.DLR Diagnostics!3l4lita",
-        "second": "AutowareFoxgloveConverter.DLR Planning Factor!4kmxj8t",
+        "first": "AutowareLichtblickPlugins.DLR Diagnostics!3l4lita",
+        "second": "AutowareLichtblickPlugins.DLR Planning Factor!4kmxj8t",
         "direction": "column",
         "splitPercentage": 42.16244042955074
       },
-      "second": "AutowareFoxgloveConverter.Vehicle Info!3d09irc",
+      "second": "AutowareLichtblickPlugins.Vehicle Info!3d09irc",
       "direction": "column",
       "splitPercentage": 81.76850471932438
     },
