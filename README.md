@@ -34,6 +34,7 @@ Special thanks to [https://github.com/kminoda/AutowareFoxgloveConverter](https:/
 - [DLR_localization.json](./layouts/DLR_localization.json) - layout for `localization` DLR tests
 - [DLR_planning_control.json](./layouts/DLR_planning_control.json) - layout for `planning_control` DLR tests
 - [ScenarioSimulator.json](./layouts/ScenarioSimulator.json) - layout for ScenarioSimulator_v2
+- [DLR_perception_j6gen2.json](./layouts/DLR_perception_j6gen2.json) - layout for `perception` DLR tests of j6gen2 vehicles
 
 ## Installation
 
