@@ -4,7 +4,7 @@
   "description": "An extension for Foxglove Studio/Lichtblick that provides Autoware message converters, panels, and layouts for visualing and debugging rosbags",
   "publisher": "tier4",
   "homepage": "https://github.com/tier4/AutowareLichtblickPlugins",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "Apache-2.0",
   "main": "./dist/extension.js",
   "keywords": [],

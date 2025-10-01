@@ -2,13 +2,13 @@
   "configById": {
     "3D!3bw2qq": {
       "cameraState": {
-        "distance": 53.00068653269822,
+        "distance": 103.24633077829917,
         "perspective": true,
-        "phi": 56.75100684716395,
+        "phi": 56.75100684716408,
         "target": [0, 0, 0],
-        "targetOffset": [1.4101358092503307, 1.3727387004631257, 2.886228345962855e-15],
+        "targetOffset": [1.3475000917259048, 1.3802548509521342, 2.886228345962855e-15],
         "targetOrientation": [0, 0, 0, 1],
-        "thetaOffset": 96.84265112128509,
+        "thetaOffset": 96.84265112128568,
         "fovy": 45,
         "near": 0.5,
         "far": 5000
@@ -274,6 +274,14 @@
         }
       },
       "topics": {
+        "/localization/kinematic_state": {
+          "viewTrajectoryPoints": "Off",
+          "trajectoryFadeTime": 4
+        },
+        "/localization/reference_kinematic_state": {
+          "viewTrajectoryPoints": "Off",
+          "trajectoryFadeTime": 4
+        },
         "/perception/object_recognition/objects": {
           "visible": false,
           "color": "#f602b769",
@@ -391,6 +399,12 @@
           "color": "#00e92a96"
         },
         "/driving_log_replayer_v2/marker/results": {
+          "visible": false
+        },
+        "/sensing/camera/camera0/image_raw/compressed": {
+          "visible": false
+        },
+        "/perception/object_recognition/detection/centerpoint_roi_cluster_fusion/objects": {
           "visible": false
         }
       },
@@ -845,13 +859,13 @@
     },
     "3D!z12upy": {
       "cameraState": {
-        "perspective": true,
         "distance": 18.049999999998164,
+        "perspective": true,
         "phi": 66.15298132905056,
-        "thetaOffset": 89.11547881951395,
-        "targetOffset": [0.14914400585146398, -0.057018084229244516, 1.9478422437608373e-17],
         "target": [0, 0, 0],
+        "targetOffset": [0.14914400585146398, -0.057018084229244516, 1.9478422437608373e-17],
         "targetOrientation": [0, 0, 0, 1],
+        "thetaOffset": 89.11547881951395,
         "fovy": 45,
         "near": 0.5,
         "far": 5000
@@ -903,10 +917,10 @@
     "3D!3h31jyv": {
       "cameraState": {
         "perspective": true,
-        "distance": 14.701837812498502,
+        "distance": 14.701837812498491,
         "phi": 67.5955832162216,
         "thetaOffset": 89.8786990564146,
-        "targetOffset": [-0.5277554868642761, -0.9249282426004077, 5.027097599199037e-17],
+        "targetOffset": [-0.5542323867180989, -0.9249842969513765, 5.027097599199037e-17],
         "target": [0, 0, 0],
         "targetOrientation": [0, 0, 0, 1],
         "fovy": 45,
@@ -962,10 +976,10 @@
     "3D!47tpdy": {
       "cameraState": {
         "perspective": true,
-        "distance": 15.475618749998404,
+        "distance": 15.47561874999839,
         "phi": 66.74852439269226,
-        "thetaOffset": 93.26693435053234,
-        "targetOffset": [-0.18693234792783342, -0.5604023787543174, 1.420812108818609e-17],
+        "thetaOffset": 93.26693435053235,
+        "targetOffset": [-0.1853440684482215, -0.5325771885319814, 9.566753238445627e-18],
         "target": [0, 0, 0],
         "targetOrientation": [0, 0, 0, 1],
         "fovy": 45,
