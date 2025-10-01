@@ -134,6 +134,17 @@
         }
       },
       "topics": {
+        "/perception/object_recognition/objects": {
+          "visible": true,
+          "viewPathObjectId": "On"
+        },
+        "/perception/object_recognition/tracking/objects": {
+          "visible": false,
+          "viewPathObjectId": "On"
+        },
+        "/sensing/radar/front_center/tracked_objects": {},
+        "/sensing/radar/rear_center/tracked_objects": {},
+        "/sensing/radar/tracked_objects": {},
         "/localization/kinematic_state": {
           "viewTrajectoryPoints": "Off",
           "trajectoryFadeTime": 4,
@@ -377,14 +388,6 @@
           "vehicleWidth": 1.83,
           "rearOverhang": 1.03,
           "visible": false
-        },
-        "/perception/object_recognition/objects": {
-          "visible": true,
-          "viewPathObjectId": "On"
-        },
-        "/perception/object_recognition/tracking/objects": {
-          "visible": false,
-          "viewPathObjectId": "On"
         },
         "/planning/path_candidate/bidirectional_traffic": {
           "viewPath": true,
@@ -3817,9 +3820,9 @@
       "imageMode": {},
       "followTf": "base_link"
     },
-    "AutowareLichtblickPlugins.DLR Diagnostics!3l4lita": {},
-    "AutowareLichtblickPlugins.DLR Planning Factor!4kmxj8t": {},
-    "AutowareLichtblickPlugins.Vehicle Info!3d09irc": {}
+    "Autoware Lichtblick Plugins.DLR Diagnostics!l72pn9": {},
+    "Autoware Lichtblick Plugins.DLR Planning Factor!3zavdup": {},
+    "Autoware Lichtblick Plugins.Vehicle Info!1h9dejg": {}
   },
   "globalVariables": {
     "": "\"\""
@@ -3832,12 +3835,12 @@
     "first": "3D!46c57bh",
     "second": {
       "first": {
-        "first": "AutowareLichtblickPlugins.DLR Diagnostics!3l4lita",
-        "second": "AutowareLichtblickPlugins.DLR Planning Factor!4kmxj8t",
+        "first": "Autoware Lichtblick Plugins.DLR Diagnostics!l72pn9",
+        "second": "Autoware Lichtblick Plugins.DLR Planning Factor!3zavdup",
         "direction": "column",
-        "splitPercentage": 42.16244042955074
+        "splitPercentage": 61.26932377320357
       },
-      "second": "AutowareLichtblickPlugins.Vehicle Info!3d09irc",
+      "second": "Autoware Lichtblick Plugins.Vehicle Info!1h9dejg",
       "direction": "column",
       "splitPercentage": 81.76850471932438
     },

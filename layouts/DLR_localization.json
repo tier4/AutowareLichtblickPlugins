@@ -3,9 +3,9 @@
     "3D!46c57bh": {
       "cameraState": {
         "perspective": true,
-        "distance": 37.0123561240972,
-        "phi": 32.19798404234393,
-        "thetaOffset": 104.56076157460981,
+        "distance": 18.999999999826553,
+        "phi": 32.197984042344096,
+        "thetaOffset": 104.56076157461086,
         "targetOffset": [-2.4718632302264223, -1.2353094809854028, 6.480693124161151e-15],
         "target": [0, 0, 0],
         "targetOrientation": [0, 0, 0, 1],
@@ -3814,8 +3814,8 @@
       "imageMode": {},
       "followTf": "base_link"
     },
-    "AutowareLichtblickPlugins.DLR Localization Result!v8bsq9": {},
-    "AutowareLichtblickPlugins.Vehicle Info!3d09irc": {}
+    "Autoware Lichtblick Plugins.DLR Localization Result!xxtjy2": {},
+    "Autoware Lichtblick Plugins.Vehicle Info!2tbp8ki": {}
   },
   "globalVariables": {
     "": "\"\""
@@ -3827,8 +3827,8 @@
   "layout": {
     "first": "3D!46c57bh",
     "second": {
-      "first": "AutowareLichtblickPlugins.DLR Localization Result!v8bsq9",
-      "second": "AutowareLichtblickPlugins.Vehicle Info!3d09irc",
+      "first": "Autoware Lichtblick Plugins.DLR Localization Result!xxtjy2",
+      "second": "Autoware Lichtblick Plugins.Vehicle Info!2tbp8ki",
       "direction": "column",
       "splitPercentage": 81.76850471932438
     },
