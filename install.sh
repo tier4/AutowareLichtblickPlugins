@@ -1,10 +1,9 @@
 #!/bin/bash
 
 # build and install the extension
-npm install
-npm run build
-nmp run
-npm run local-install
+yarn install
+yarn run build
+yarn run local-install
 
 # install evaluator_status_viewer
 cd ./evaluator_status_viewer
