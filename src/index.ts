@@ -5,6 +5,8 @@ import {
   convertDetectedObjects,
   convertTrackedObjects,
   convertPredictedObjects,
+  convertDetectedObjectsWithFeature,
+  convertTrafficLightRoiArray,
   PerceptionSettings,
   convertKinematicState,
   LocalizationSettings,
@@ -58,6 +60,16 @@ export function activate(extensionContext: ExtensionContext): void {
     fromSchemaName: "autoware_perception_msgs/msg/DetectedObjects",
     toSchemaName: "foxglove.SceneUpdate",
     converter: convertDetectedObjects,
+  });
+  extensionContext.registerMessageConverter({
+    fromSchemaName: "tier4_perception_msgs/msg/DetectedObjectsWithFeature",
+    toSchemaName: "foxglove.ImageAnnotations",
+    converter: convertDetectedObjectsWithFeature,
+  });
+  extensionContext.registerMessageConverter({
+    fromSchemaName: "tier4_perception_msgs/msg/TrafficLightRoiArray",
+    toSchemaName: "foxglove.ImageAnnotations",
+    converter: convertTrafficLightRoiArray,
   });
 
   // Localization Converters

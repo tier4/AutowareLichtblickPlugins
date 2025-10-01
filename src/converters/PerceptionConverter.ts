@@ -4,10 +4,16 @@ import {
   SpherePrimitive,
   LinePrimitive,
   TextPrimitive,
+  ImageAnnotations, 
+  PointsAnnotation, 
+  PointsAnnotationType, 
+  TextAnnotation
 } from "@foxglove/schemas";
 import { PredictedObjects } from "../msgs/perception/PredictedObjects";
 import { TrackedObjects } from "../msgs/perception/TrackedObjects";
 import { DetectedObjects } from "../msgs/perception/DetectedObjects";
+import { DetectedObjectsWithFeature } from "../msgs/perception/DetectedObjectWithFeature";
+import { TrafficLightRoiArray } from "../msgs/perception/TrafficLightRoi";
 import { Header } from "../msgs/base/Header";
 import { Point } from "../msgs/base/Point";
 import { Orientation } from "../msgs/base/Orientation";
@@ -54,6 +60,11 @@ const colorMap: Record<number, Color> = {
   7: { r: 0.75, g: 1.0, b: 0.25, a: 0.5 }, // PEDESTRIAN // green // hex: #BFFF40
 };
 
+const trafficLightColorMap: Record<number, Color> = {
+  0: { r: 0.0, g: 1.0, b: 0.0, a: 1.0 },    // CAR_TRAFFIC_LIGHT // red // hex: #00FF00
+  1: { r: 0.0, g: 0.0, b: 1.0, a: 1.0 },    // PEDESTRIAN_TRAFFIC_LIGHT // yellow // hex: #FFFF00
+};
+
 enum Classification {
   UNKNOWN = 0,
   CAR = 1,
@@ -64,6 +75,23 @@ enum Classification {
   MOTORCYCLE = 6,
   PEDESTRIAN = 7,
 }
+
+const classificationNameMap: Record<number, string> = {
+  0: "UNKNOWN",
+  1: "CAR",
+  2: "TRUCK",
+  3: "BUS",
+  4: "BICYCLE",
+  5: "MOTORBIKE",
+  6: "PEDESTRIAN",
+  7: "ANIMAL",
+};
+
+const trafficLightNameMap: Record<number, string> = {
+  0: "VehicleTL",
+  1: "PedestrianTL"
+};
+
 
 function createSceneUpdateMessage(
   header: Header,
@@ -114,6 +142,21 @@ function createCubePrimitive(
       orientation,
     },
   };
+}
+
+function roiToPolyline(
+  x: number,
+  y: number,
+  w: number,
+  h: number
+): Array<{ x: number; y: number }> {
+  return [
+    { x, y },
+    { x: x + w, y },
+    { x: x + w, y: y + h },
+    { x, y: y + h },
+    { x, y }, // close
+  ];
 }
 
 export function convertDetectedObjects(msg: DetectedObjects): SceneUpdate {
@@ -330,6 +373,106 @@ export function convertPredictedObjects(
   });
 
   return createSceneUpdateMessage(header, [], cubePrimitives, linePrimitives, textPrimitives);
+}
+
+export function convertDetectedObjectsWithFeature(msg: DetectedObjectsWithFeature): ImageAnnotations {
+  const anns: ImageAnnotations = { circles: [], points: [], texts: [] };
+
+  for (const object of msg.feature_objects ?? []) {
+    const roi = object.feature?.roi;
+    if (!roi) continue;
+
+    if (
+      object.object.classification.length === 0 ||
+      !object.object.classification[0] ||
+      object.object.classification[0].label === undefined
+    ) {
+      continue;
+    }
+
+    // ROS RegionOfInterest uses x_offset/y_offset + width/height
+    const x = roi.x_offset;
+    const y = roi.y_offset;
+    const w = roi.width;
+    const h = roi.height;
+
+    const { label } = object.object.classification[0];
+    const labelStr = classificationNameMap[label as keyof typeof classificationNameMap] || "UNKNOWN";
+    const color = colorMap[label as keyof typeof colorMap] ?? { r: 1.0, g: 1.0, b: 1.0, a: 1.0 };
+    color.a = 0.8; // make it more opaque for 2D outline
+    const fill_color = { ...color, a: 0.2 }; // more transparent fill color
+    const score = object.object.existence_probability;
+
+    // Draw rectangle as a polyline (or switch to POLYGON if you want it filled)
+    const poly: PointsAnnotation = {
+      timestamp: msg.header.stamp,
+      type: PointsAnnotationType.LINE_LOOP,
+      thickness: 4,
+      outline_color: color,
+      outline_colors: [],
+      fill_color: fill_color,
+      points: roiToPolyline(x, y, w, h),
+    };
+    anns.points!.push(poly);
+
+    // Optional: label text from the first classification
+    const cls = object.object.classification[0];
+    if (cls) {
+      const txt: TextAnnotation = {
+        timestamp: msg.header.stamp,
+        position: { x, y: Math.max(0, y - 6) },
+        text: `${labelStr}: ${score.toFixed(2)}`,
+        text_color: color,
+        background_color: { r: 0, g: 0, b: 0, a: 0.5 },
+        font_size: 14,
+      };
+      anns.texts!.push(txt);
+    }
+  }
+
+  return anns;
+}
+
+export function convertTrafficLightRoiArray(msg: TrafficLightRoiArray): ImageAnnotations {
+  const anns: ImageAnnotations = { circles: [], points: [], texts: [] };
+
+  for (const tl of msg.rois ?? []) {
+    const roi = tl.roi;
+    if (!roi) continue;
+
+    const x = roi.x_offset;
+    const y = roi.y_offset;
+    const w = roi.width;
+    const h = roi.height;
+
+    const typeStr = trafficLightNameMap[tl.traffic_light_type as keyof typeof trafficLightNameMap] ?? "TrafficLight";
+    const color = trafficLightColorMap[tl.traffic_light_type as keyof typeof colorMap] ?? { r: 1.0, g: 1.0, b: 1.0, a: 1.0 };
+    const fill_color = { ...color, a: 0.2 }; // more transparent fill color
+    // 2D box as a closed loop
+    const poly: PointsAnnotation = {
+      timestamp: msg.header.stamp,
+      type: PointsAnnotationType.LINE_LOOP,
+      thickness: 4,
+      outline_color: color,
+      outline_colors: [],
+      fill_color: fill_color,
+      points: roiToPolyline(x, y, w, h),
+    };
+    anns.points!.push(poly);
+
+    // label above the box (id + type)
+    const label: TextAnnotation = {
+      timestamp: msg.header.stamp,
+      position: { x, y: Math.max(0, y - 6) },
+      text: `TL:${tl.traffic_light_id} ${typeStr}`,
+      text_color: color,
+      background_color: { r: 0, g: 0, b: 0, a: 0.5 },
+      font_size: 14,
+    };
+    anns.texts!.push(label);
+  }
+
+  return anns;
 }
 
 export type { PerceptionGUISettings };
