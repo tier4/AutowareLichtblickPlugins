@@ -18,7 +18,7 @@
     "pretest": "lichtblick-extension pretest",
     "pre-commit:install": "pre-commit install",
     "pre-commit:run": "pre-commit run --all-files",
-    "pre-commit:update": "pre-commit autoupdate",
+    "pre-commit:update": "pre-commit autoupdate"
   },
   "devDependencies": {
     "@foxglove/eslint-plugin": "1.0.1",
