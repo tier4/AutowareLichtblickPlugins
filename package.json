@@ -18,9 +18,7 @@
     "pretest": "lichtblick-extension pretest",
     "pre-commit:install": "pre-commit install",
     "pre-commit:run": "pre-commit run --all-files",
-    "pre-commit:update": "pre-commit autoupdate",
-    "changelog": "auto-changelog --template changelog-template.hbs",
-    "changelog:preview": "auto-changelog --template changelog-template.hbs --output CHANGELOG_AUTO.md"
+    "pre-commit:update": "pre-commit autoupdate"
   },
   "devDependencies": {
     "@foxglove/eslint-plugin": "1.0.1",
@@ -29,7 +27,6 @@
     "@types/react-dom": "18.2.17",
     "@typescript-eslint/eslint-plugin": "6.13.1",
     "@typescript-eslint/parser": "6.13.1",
-    "auto-changelog": "^2.5.0",
     "create-lichtblick-extension": "1.0.0",
     "eslint": "8.54.0",
     "eslint-config-prettier": "8.10.0",
