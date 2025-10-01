@@ -4,10 +4,10 @@ import {
   SpherePrimitive,
   LinePrimitive,
   TextPrimitive,
-  ImageAnnotations, 
-  PointsAnnotation, 
-  PointsAnnotationType, 
-  TextAnnotation
+  ImageAnnotations,
+  PointsAnnotation,
+  PointsAnnotationType,
+  TextAnnotation,
 } from "@foxglove/schemas";
 import { PredictedObjects } from "../msgs/perception/PredictedObjects";
 import { TrackedObjects } from "../msgs/perception/TrackedObjects";
@@ -61,8 +61,8 @@ const colorMap: Record<number, Color> = {
 };
 
 const trafficLightColorMap: Record<number, Color> = {
-  0: { r: 0.0, g: 1.0, b: 0.0, a: 1.0 },    // CAR_TRAFFIC_LIGHT // red // hex: #00FF00
-  1: { r: 0.0, g: 0.0, b: 1.0, a: 1.0 },    // PEDESTRIAN_TRAFFIC_LIGHT // yellow // hex: #FFFF00
+  0: { r: 0.0, g: 1.0, b: 0.0, a: 1.0 }, // CAR_TRAFFIC_LIGHT // red // hex: #00FF00
+  1: { r: 0.0, g: 0.0, b: 1.0, a: 1.0 }, // PEDESTRIAN_TRAFFIC_LIGHT // yellow // hex: #FFFF00
 };
 
 enum Classification {
@@ -89,9 +89,8 @@ const classificationNameMap: Record<number, string> = {
 
 const trafficLightNameMap: Record<number, string> = {
   0: "VehicleTL",
-  1: "PedestrianTL"
+  1: "PedestrianTL",
 };
-
 
 function createSceneUpdateMessage(
   header: Header,
@@ -375,7 +374,9 @@ export function convertPredictedObjects(
   return createSceneUpdateMessage(header, [], cubePrimitives, linePrimitives, textPrimitives);
 }
 
-export function convertDetectedObjectsWithFeature(msg: DetectedObjectsWithFeature): ImageAnnotations {
+export function convertDetectedObjectsWithFeature(
+  msg: DetectedObjectsWithFeature
+): ImageAnnotations {
   const anns: ImageAnnotations = { circles: [], points: [], texts: [] };
 
   for (const object of msg.feature_objects ?? []) {
@@ -397,7 +398,8 @@ export function convertDetectedObjectsWithFeature(msg: DetectedObjectsWithFeatur
     const h = roi.height;
 
     const { label } = object.object.classification[0];
-    const labelStr = classificationNameMap[label as keyof typeof classificationNameMap] || "UNKNOWN";
+    const labelStr =
+      classificationNameMap[label as keyof typeof classificationNameMap] || "UNKNOWN";
     const color = colorMap[label as keyof typeof colorMap] ?? { r: 1.0, g: 1.0, b: 1.0, a: 1.0 };
     color.a = 0.8; // make it more opaque for 2D outline
     const fill_color = { ...color, a: 0.2 }; // more transparent fill color
@@ -445,8 +447,15 @@ export function convertTrafficLightRoiArray(msg: TrafficLightRoiArray): ImageAnn
     const w = roi.width;
     const h = roi.height;
 
-    const typeStr = trafficLightNameMap[tl.traffic_light_type as keyof typeof trafficLightNameMap] ?? "TrafficLight";
-    const color = trafficLightColorMap[tl.traffic_light_type as keyof typeof colorMap] ?? { r: 1.0, g: 1.0, b: 1.0, a: 1.0 };
+    const typeStr =
+      trafficLightNameMap[tl.traffic_light_type as keyof typeof trafficLightNameMap] ??
+      "TrafficLight";
+    const color = trafficLightColorMap[tl.traffic_light_type as keyof typeof colorMap] ?? {
+      r: 1.0,
+      g: 1.0,
+      b: 1.0,
+      a: 1.0,
+    };
     const fill_color = { ...color, a: 0.2 }; // more transparent fill color
     // 2D box as a closed loop
     const poly: PointsAnnotation = {

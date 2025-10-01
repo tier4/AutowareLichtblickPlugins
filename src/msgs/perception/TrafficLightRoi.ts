@@ -7,7 +7,7 @@ export type TrafficLightRoiArray = {
 };
 
 export type TrafficLightRoi = {
-    roi: RegionOfInterest;
-    traffic_light_id: number;
-    traffic_light_type: number;
-}
+  roi: RegionOfInterest;
+  traffic_light_id: number;
+  traffic_light_type: number;
+};

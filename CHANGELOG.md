@@ -10,10 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2025-10-01
 
 ### Added
+
 - Initial release of AutowareLichtblickPlugins
 - Message converters for Autoware perception, localization, and planning messages
 - DLR Diagnostics Result panel for DrivingLogReplayerv2
-- DLR PlanningFactor Result panel for planning_control tests  
+- DLR PlanningFactor Result panel for planning_control tests
 - DLR Localization Result panel for localization tests
 - Vehicle Config panel for ego vehicle display
 - Pre-configured layouts for DLR tests and ScenarioSimulator
@@ -22,12 +23,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Apache-2.0 license
 
 ### Features
+
 - **Perception Converters**: DetectedObjects, TrackedObjects, PredictedObjects
 - **Localization Converters**: Odometry
 - **Planning Converters**: Path, PathWithLaneId, Trajectory
 - **Layouts**: DLR_localization, DLR_planning_control, DLR_perception_j6gen2, ScenarioSimulator
 
 ### Technical
+
 - Built with TypeScript and React
 - Uses Foxglove Studio extension framework
 - Compatible with Lichtblick and Foxglove Studio

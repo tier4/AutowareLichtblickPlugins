@@ -10,12 +10,11 @@ export type PointCloud2 = {
   row_step: number;
   data: Uint8Array | number[];
   is_dense: boolean;
-}
+};
 
 export type PointField = {
   name: string;
   offset: number;
   datatype: number;
   count: number;
-}
-
+};
