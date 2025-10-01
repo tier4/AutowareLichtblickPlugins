@@ -20,11 +20,17 @@
     "pre-commit:run": "pre-commit run --all-files",
     "pre-commit:update": "pre-commit autoupdate",
     "changelog": "auto-changelog --template changelog-template.hbs",
-    "changelog:preview": "auto-changelog --template changelog-template.hbs --output CHANGELOG_AUTO.md"
+    "changelog:preview": "auto-changelog --template changelog-template.hbs --output CHANGELOG_AUTO.md",
+    "release": "release-it",
+    "release:dry": "release-it --dry-run",
+    "release:prepare": "yarn build && yarn package",
+    "release:tag": "git tag -a",
+    "release:push": "git push origin --tags"
   },
   "devDependencies": {
     "@foxglove/eslint-plugin": "1.0.1",
     "@foxglove/studio": "1.79.0",
+    "@release-it/conventional-changelog": "^10.0.1",
     "@types/react": "18.2.39",
     "@types/react-dom": "18.2.17",
     "@typescript-eslint/eslint-plugin": "6.13.1",
@@ -44,6 +50,7 @@
     "prettier": "3.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "release-it": "^19.0.5",
     "typescript": "5.3.2"
   },
   "dependencies": {

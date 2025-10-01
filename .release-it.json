@@ -1,0 +1,30 @@
+{
+  "git": {
+    "commitMessage": "chore: release v${version}",
+    "tagName": "v${version}",
+    "requireCleanWorkingDir": true,
+    "requireUpstream": true
+  },
+  "github": {
+    "release": true,
+    "releaseName": "AutowareLichtblickPlugins v${version}",
+    "releaseNotes": "npx auto-changelog --stdout --template changelog-template.hbs"
+  },
+  "npm": {
+    "publish": false
+  },
+  "hooks": {
+    "before:init": [
+      "yarn lint",
+      "yarn build"
+    ],
+    "after:bump": "yarn changelog",
+    "after:release": "echo 'Release ${version} completed!'"
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "angular",
+      "infile": "CHANGELOG.md"
+    }
+  }
+}
