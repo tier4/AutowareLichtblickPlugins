@@ -1,11 +1,11 @@
 {
-  "name": "AutowareLichtblickPlugins",
-  "displayName": "AutowareLichtblickPlugins",
+  "name": "autoware-lichtblick-plugins",
+  "displayName": "Autoware Lichtblick Plugins",
   "description": "An extension for Foxglove Studio/Lichtblick that provides Autoware message converters, panels, and layouts for visualing and debugging rosbags",
-  "publisher": "TemkeiKem",
-  "homepage": "",
-  "version": "0.3.0",
-  "license": "UNLICENSED",
+  "publisher": "tier4",
+  "homepage": "https://github.com/tier4/AutowareLichtblickPlugins",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
   "main": "./dist/extension.js",
   "keywords": [],
   "scripts": {
@@ -18,7 +18,9 @@
     "pretest": "lichtblick-extension pretest",
     "pre-commit:install": "pre-commit install",
     "pre-commit:run": "pre-commit run --all-files",
-    "pre-commit:update": "pre-commit autoupdate"
+    "pre-commit:update": "pre-commit autoupdate",
+    "changelog": "auto-changelog --template changelog-template.hbs",
+    "changelog:preview": "auto-changelog --template changelog-template.hbs --output CHANGELOG_AUTO.md"
   },
   "devDependencies": {
     "@foxglove/eslint-plugin": "1.0.1",
@@ -27,6 +29,7 @@
     "@types/react-dom": "18.2.17",
     "@typescript-eslint/eslint-plugin": "6.13.1",
     "@typescript-eslint/parser": "6.13.1",
+    "auto-changelog": "^2.5.0",
     "create-lichtblick-extension": "1.0.0",
     "eslint": "8.54.0",
     "eslint-config-prettier": "8.10.0",
