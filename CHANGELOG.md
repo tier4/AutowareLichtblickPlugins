@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2025-10-01
+
+### Added
+- 2D ROI (Region of Interest) support for perception visualization
+- TrafficLightRoi and TrafficLightRoiArray message converters
+- DetectedObjectWithFeature support for enhanced object detection
+- RELEASE.md guide for manual version management
+- Enhanced layout configurations for DLR tests
+
+### Fixed
+- Project configuration cleanup
+- Package.json syntax issues
+
 ## [0.1.0] - 2025-10-01
 
 ### Added
