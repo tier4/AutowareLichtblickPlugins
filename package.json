@@ -19,7 +19,7 @@
     "pre-commit:install": "pre-commit install",
     "pre-commit:run": "pre-commit run --all-files",
     "pre-commit:update": "pre-commit autoupdate",
-    "changelog": "auto-changelog --template changelog-template.hbs",
+    "changelog": "auto-changelog --template changelog-template.hbs --output CHANGELOG_AUTO.md",
     "changelog:preview": "auto-changelog --template changelog-template.hbs --output CHANGELOG_AUTO.md"
   },
   "devDependencies": {
