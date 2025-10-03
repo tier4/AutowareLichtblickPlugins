@@ -3,25 +3,12 @@
     "3D!46c57bh": {
       "cameraState": {
         "perspective": true,
-        "distance": 30.146795390194026,
-        "phi": 77.82868784002862,
-        "thetaOffset": 10.98912076316248,
-        "targetOffset": [
-          5.0213164578652805,
-          10.034704210654425,
-          4.857932809175508e-15
-        ],
-        "target": [
-          0,
-          0,
-          0
-        ],
-        "targetOrientation": [
-          0,
-          0,
-          0,
-          1
-        ],
+        "distance": 10.807201753111256,
+        "phi": 72.44886218622896,
+        "thetaOffset": 81.37517306702361,
+        "targetOffset": [6.8665141862831245, -0.30749468694926807, 5.026517912039781e-15],
+        "target": [0, 0, 0],
+        "targetOrientation": [0, 0, 0, 1],
         "fovy": 45,
         "near": 0.5,
         "far": 5000
@@ -3841,7 +3828,16 @@
           "color": "#d9666626"
         },
         "/driving_log_replayer_v2/marker/detection": {
-          "visible": true
+          "visible": true,
+          "showOutlines": false,
+          "namespaces": {
+            "detection": {
+              "visible": true
+            },
+            "detection_uuid": {
+              "visible": false
+            }
+          }
         },
         "/driving_log_replayer_v2/pcd/detection": {
           "visible": true,

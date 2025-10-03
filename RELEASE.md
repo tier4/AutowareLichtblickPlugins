@@ -20,8 +20,8 @@ yarn build
 
 ## Versioning
 
-**PATCH (0.1.1 → 0.1.2)**: Bug fixes, docs, refactoring  
-**MINOR (0.1.1 → 0.2.0)**: New features, panels, layouts  
+**PATCH (0.1.1 → 0.1.2)**: Bug fixes, docs, refactoring
+**MINOR (0.1.1 → 0.2.0)**: New features, panels, layouts
 **MAJOR (0.1.1 → 1.0.0)**: Breaking changes
 
 ## Example: Release 0.1.1
