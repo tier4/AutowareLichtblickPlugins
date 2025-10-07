@@ -136,7 +136,7 @@ function createCubePrimitive(
         x: position.x,
         y: position.y,
         // make the cube start at the ground level (z = 0)
-        z: position.z - 0.5 * dimensions.z,
+        z: position.z,
       },
       orientation,
     },
